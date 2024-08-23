@@ -1,0 +1,11 @@
+.ui-button {
+    width: fit-content;
+    background-color: #5B99C2;
+    border:none;
+    padding: 10px 20px;
+    color:white;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}

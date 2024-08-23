@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { Button } from './components/button';
+import { useBufferedApiRequests } from './utils/useBufferedApiRequests';
+import { API_ENDPOINT } from './EndPoint';
 
-function App() {
+const App = () => {
+  
+  const sendBufferedRequest = useBufferedApiRequests(API_ENDPOINT);
+
+  const handleSubmit = () => {
+    sendBufferedRequest( new Date());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='ui-app'>
+      <h1>Online/Offline Request Buffer</h1>
+      <Button
+        title='Request Api'
+        onClick={handleSubmit}
+      />
     </div>
   );
-}
+};
+
 
 export default App;
